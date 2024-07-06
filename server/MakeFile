@@ -1,0 +1,12 @@
+flags = -O2 -Wall -std=c2x
+
+all: clean server
+
+server: server.o
+	cc ${flags} $^ -o $@ ${ldflags}
+
+server.o : server.c
+	cc ${flags} -c $^
+
+clean:
+	rm -f *.o server
